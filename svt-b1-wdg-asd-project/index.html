@@ -200,7 +200,7 @@
 
     <section class="max-w-7xl mx-auto px-5 py-16">
 
-
+       <button onclick="tc()" class="bg-blue-600 text-white">Hide/Show</button>
         <!-- Heading -->
 
         <div class="text-center mb-12">
@@ -219,7 +219,7 @@
 
         <!-- Cards -->
 
-        <div class="flex flex-col md:flex-row gap-8">
+        <div class="flex flex-col md:flex-row gap-8" id="card">
 
 
             <!-- Card 1 -->
@@ -302,6 +302,12 @@
         function sh2() {
             let title = document.querySelector(".card-title2").innerText;
             alert(title);
+        }
+    </script>
+
+    <script>
+        function tc() {
+            document.getElementById("card").classList.toggle('hidden');
         }
     </script>
 
