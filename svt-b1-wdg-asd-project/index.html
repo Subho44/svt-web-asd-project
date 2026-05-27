@@ -2,35 +2,390 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-learning</title>
-    <link rel="stylesheet" href="./src/input.css">
+
+    <title>Tailwind CSS 3 Website</title>
+
     <link rel="stylesheet" href="./src/output.css">
+
 </head>
 
 <body class="bg-gray-100">
-    <!---header section/navbar-->
-    <nav class="bg-zinc-600 text-white p-4">
-        <div class="flex justify-between items-center">
-            <h1 class="text-2xl font-bold">E-learning</h1>
-            <ul class="flex gap-5">
-                <li><a href="/" class="hover:text-blue-300">Home</a></li>
-                <li><a href="/" class="hover:text-blue-300">About</a></li>
-                <li><a href="/" class="hover:text-blue-300">Contact</a></li>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="bg-blue-600 text-white shadow-lg">
+
+        <div class="max-w-7xl mx-auto px-5 py-4 flex justify-between items-center">
+
+            <h1 class="text-3xl font-bold">
+                MyWebsite
+            </h1>
+
+            <ul class="hidden md:flex gap-8 text-lg">
+
+                <li>
+                    <a href="#" class="menu">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="menu">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="menu">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="menu">
+                        Contact
+                    </a>
+                </li>
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl mt-8 text-lg" id="dbtn">
+                
+                    Dark mode
+                
+                </button>
+
             </ul>
+
         </div>
 
     </nav>
+    <script>
+        let menus = document.querySelectorAll(".menu");
 
-    <!--hero section-->
-    <section class="text-center py-20 px-5 ">
-        <h1 class="text-4xl md:text-6xl font-bold text-blue-600">E-learn smart platform </h1>
-        <p class="text-gray-600 mt- text-lg">Easy modern learning paltform</p>
-        <button class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
-            Get Started
-        </button>
+        menus.forEach(function (menu) {
+            menu.addEventListener("click", function () {
+                menus.forEach(item => item.classList.remove("text-gray-600"));
+                menu.classList.add("text-gray-600");
+            });
+        });
+    </script>
+
+    <script>
+        document.getElementById("dbtn").addEventListener("click", function(){
+            document.body.classList.toggle("bg-gray-900");
+             document.body.classList.toggle("text-white");
+        });
+    </script>
+
+    <!-- ================= HERO SECTION ================= -->
+    
+    <section class="bg-white py-20">
+
+        <div class="max-w-7xl mx-auto px-5 flex flex-col md:flex-row items-center gap-10">
+
+
+            <!-- Left -->
+
+            <div class="w-full md:w-1/2">
+
+                <h1 class="text-5xl md:text-6xl font-bold text-gray-800 leading-tight" id="x">
+
+                    Learn Modern
+                    <span class="text-blue-600">
+                        Web Design
+                    </span>
+
+                </h1>
+
+                <p class="text-gray-600 mt-6 text-lg leading-8">
+
+                    Build responsive modern websites using HTML,
+                    JavaScript and Tailwind CSS 3.
+
+                </p>
+
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl mt-8 text-lg"
+                    onclick="changetext()">
+
+                    Get Started
+
+                </button>
+
+                <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl mt-8 text-lg" id="notify">
+
+                    Notify Me
+
+                </button>
+
+            </div>
+            <script>
+                function changetext() {
+                    document.getElementById("x").innerText = "Animated modern UI&UX design";
+                }
+            </script>
+            <script>
+                document.getElementById("notify").addEventListener("click", function () {
+                    alert("welcome to web design class");
+                })
+            </script>
+
+
+
+            <!-- Right -->
+
+            <div class="w-full md:w-1/2">
+
+                <img src="https://picsum.photos/700/500" class="rounded-2xl shadow-xl w-full">
+
+            </div>
+
+        </div>
+
     </section>
+
+    <!-- ================= SLIDER ================= -->
+
+    <section class="max-w-7xl mx-auto px-5 py-16">
+
+        <div class="text-center mb-10">
+
+            <h1 class="text-4xl font-bold text-blue-600">
+                Image Slider
+            </h1>
+
+        </div>
+
+
+
+        <div class="relative overflow-hidden rounded-2xl shadow-xl">
+
+
+            <!-- Slides -->
+
+            <div id="slider" class="flex transition-transform duration-500">
+
+                <img src="https://picsum.photos/1200/500?random=1" class="w-full flex-shrink-0 object-cover">
+
+                <img src="https://picsum.photos/1200/500?random=2" class="w-full flex-shrink-0 object-cover">
+
+                <img src="https://picsum.photos/1200/500?random=3" class="w-full flex-shrink-0 object-cover">
+
+            </div>
+
+
+
+            <!-- Prev Button -->
+
+            <button onclick="prevSlide()"
+                class="absolute top-1/2 left-4 -translate-y-1/2 bg-black/60 text-white px-4 py-2 rounded-full text-2xl">
+                ❮
+            </button>
+
+
+
+            <!-- Next Button -->
+
+            <button onclick="nextSlide()"
+                class="absolute top-1/2 right-4 -translate-y-1/2 bg-black/60 text-white px-4 py-2 rounded-full text-2xl">
+                ❯
+            </button>
+
+
+        </div>
+
+    </section>
+
+    <!-- ================= CARDS ================= -->
+
+    <section class="max-w-7xl mx-auto px-5 py-16">
+
+
+        <!-- Heading -->
+
+        <div class="text-center mb-12">
+
+            <h1 class="text-4xl font-bold text-blue-600">
+                Popular Courses
+            </h1>
+
+            <p class="text-gray-600 mt-4 text-lg">
+                Responsive Card Design using Tailwind CSS 3
+            </p>
+
+        </div>
+
+
+
+        <!-- Cards -->
+
+        <div class="flex flex-col md:flex-row gap-8">
+
+
+            <!-- Card 1 -->
+
+            <div class="bg-white rounded-2xl shadow-lg p-5 w-full md:w-1/3">
+
+                <img src="https://picsum.photos/400/250?random=10" class="rounded-xl w-full h-52 object-cover">
+
+                <h2 class="text-2xl font-bold mt-5 text-gray-800 card-title">
+                    React JS
+                </h2>
+
+                <p class="text-gray-600 mt-3">
+                    Learn React JS frontend development step by step.
+                </p>
+
+                <button class="bg-blue-600 hover:bg-blue-700 text-white w-full py-3 rounded-lg mt-5" onclick="sh()">
+                    Learn More
+                </button>
+
+            </div>
+
+
+
+            <!-- Card 2 -->
+
+            <div class="bg-white rounded-2xl shadow-lg p-5 w-full md:w-1/3">
+
+                <img src="https://picsum.photos/400/250?random=11" class="rounded-xl w-full h-52 object-cover">
+
+                <h2 class="text-2xl font-bold mt-5 text-gray-800 card-title1">
+                    Tailwind CSS
+                </h2>
+
+                <p class="text-gray-600 mt-3">
+                    Create responsive modern UI using Tailwind CSS 3.
+                </p>
+
+                <button class="bg-gray-600 hover:bg-gray-700 text-white w-full py-3 rounded-lg mt-5" onclick="sh1()">
+                    Explore
+                </button>
+
+            </div>
+
+
+
+            <!-- Card 3 -->
+
+            <div class="bg-white rounded-2xl shadow-lg p-5 w-full md:w-1/3">
+
+                <img src="https://picsum.photos/400/250?random=12" class="rounded-xl w-full h-52 object-cover">
+
+                <h2 class="text-2xl font-bold mt-5 text-gray-800 card-title2">
+                    JavaScript
+                </h2>
+
+                <p class="text-gray-600 mt-3">
+                    Learn JavaScript ES6 with easy examples.
+                </p>
+
+                <button class="bg-gray-600 hover:bg-red-700 text-white w-full py-3 rounded-lg mt-5" onclick="sh2()">
+                    Start Now
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+    <script>
+        function sh() {
+            let title = document.querySelector(".card-title").innerText;
+            alert(title);
+        }
+        function sh1() {
+            let title = document.querySelector(".card-title1").innerText;
+            alert(title);
+        }
+        function sh2() {
+            let title = document.querySelector(".card-title2").innerText;
+            alert(title);
+        }
+    </script>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="bg-black text-white text-center py-6 mt-10">
+
+        <h1 class="text-2xl font-bold">
+            Tailwind CSS 3 Website
+        </h1>
+
+        <p class="mt-3 text-gray-400">
+            Responsive Modern UI Design
+        </p>
+
+    </footer>
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        let index = 0;
+
+        const slider =
+            document.getElementById("slider");
+
+        const totalSlides =
+            slider.children.length;
+
+
+
+        // Show Slide
+
+        function showSlide() {
+
+            slider.style.transform =
+                `translateX(-${index * 100}%)`;
+
+        }
+
+
+
+        // Next Slide
+
+        function nextSlide() {
+
+            index++;
+
+            if (index >= totalSlides) {
+
+                index = 0;
+
+            }
+
+            showSlide();
+
+        }
+
+
+
+        // Previous Slide
+
+        function prevSlide() {
+
+            index--;
+
+            if (index < 0) {
+
+                index = totalSlides - 1;
+
+            }
+
+            showSlide();
+
+        }
+
+
+
+        // Auto Slide
+
+        setInterval(nextSlide, 3000);
+
+    </script>
+
 
 </body>
 
